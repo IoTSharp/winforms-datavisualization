@@ -9,6 +9,9 @@
     <NoWarn>$(NoWarn);618</NoWarn>
     <DefineConstants>$(DefineConstants);WINFORMS_CONTROL</DefineConstants>
     <OutputType>Library</OutputType>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>5.0.1</Version>
+    <PackageId>Maikebing.System.Windows.Forms.DataVisualization</PackageId>
     <!-- <Win32Manifest>Resources\System\Windows\Forms\XPThemes.manifest</Win32Manifest> -->
   </PropertyGroup>
 
