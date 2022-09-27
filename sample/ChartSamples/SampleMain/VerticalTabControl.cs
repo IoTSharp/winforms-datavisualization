@@ -9,7 +9,7 @@
 //				mode. 
 //
 //==============================================================================
-// Copyright © Microsoft Corporation, all rights reserved
+// Copyright ?Microsoft Corporation, all rights reserved
 //==============================================================================
 
 using System;

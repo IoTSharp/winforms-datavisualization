@@ -214,18 +214,18 @@ namespace ChartSamples
             this.panelHeader = new System.Windows.Forms.Panel();
             this.pictureBoxHeaderRight = new System.Windows.Forms.PictureBox();
             this.pictureBoxHeaderLeft = new System.Windows.Forms.PictureBox();
-            this.pictureBoxHeaderMidle = new TiledPictureBox();
+            this.pictureBoxHeaderMidle = new ChartSamples.TiledPictureBox();
             this.splitterVertical = new System.Windows.Forms.Splitter();
             this.panelContent = new System.Windows.Forms.Panel();
             this.panelWebBrowser = new System.Windows.Forms.Panel();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.tabControlSample = new VerticalTabControl();
+            this.tabControlSample = new ChartSamples.VerticalTabControl();
             this.buttonSamplePrevious = new System.Windows.Forms.Button();
             this.buttonSampleNext = new System.Windows.Forms.Button();
-            this.contextMenuRTF = new System.Windows.Forms.ContextMenuStrip();
+            this.contextMenuRTF = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuItemCopy = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemCopyAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelSampleTitle = new LabelWithBackImage();
+            this.labelSampleTitle = new ChartSamples.LabelWithBackImage();
             this.panelTree.SuspendLayout();
             this.panelIndex.SuspendLayout();
             this.panelHeader.SuspendLayout();
@@ -234,6 +234,7 @@ namespace ChartSamples
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHeaderMidle)).BeginInit();
             this.panelContent.SuspendLayout();
             this.panelWebBrowser.SuspendLayout();
+            this.contextMenuRTF.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTree
@@ -253,7 +254,7 @@ namespace ChartSamples
             this.panelIndex.Controls.Add(this.listBoxIndex);
             this.panelIndex.Controls.Add(this.textBoxIndex);
             this.panelIndex.Controls.Add(this.label1);
-            this.panelIndex.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelIndex.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.panelIndex.Location = new System.Drawing.Point(24, 168);
             this.panelIndex.Name = "panelIndex";
             this.panelIndex.Size = new System.Drawing.Size(192, 272);
@@ -261,12 +262,12 @@ namespace ChartSamples
             // 
             // listBoxIndex
             // 
-            this.listBoxIndex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxIndex.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxIndex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxIndex.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listBoxIndex.IntegralHeight = false;
-            this.listBoxIndex.ItemHeight = 15;
+            this.listBoxIndex.ItemHeight = 17;
             this.listBoxIndex.Location = new System.Drawing.Point(0, 40);
             this.listBoxIndex.Name = "listBoxIndex";
             this.listBoxIndex.Size = new System.Drawing.Size(192, 232);
@@ -276,16 +277,16 @@ namespace ChartSamples
             // textBoxIndex
             // 
             this.textBoxIndex.AcceptsReturn = true;
-            this.textBoxIndex.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxIndex.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxIndex.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxIndex.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxIndex.Location = new System.Drawing.Point(0, 17);
             this.textBoxIndex.Name = "textBoxIndex";
-            this.textBoxIndex.Size = new System.Drawing.Size(192, 21);
+            this.textBoxIndex.Size = new System.Drawing.Size(192, 25);
             this.textBoxIndex.TabIndex = 1;
             this.textBoxIndex.TextChanged += new System.EventHandler(this.textBoxIndex_TextChanged);
-            this.textBoxIndex.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBoxIndex_MouseDown);
             this.textBoxIndex.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxIndex_KeyPress);
+            this.textBoxIndex.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBoxIndex_MouseDown);
             // 
             // label1
             // 
@@ -299,7 +300,7 @@ namespace ChartSamples
             // 
             this.treeSamples.BackColor = System.Drawing.SystemColors.Window;
             this.treeSamples.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.treeSamples.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeSamples.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.treeSamples.HideSelection = false;
             this.treeSamples.HotTracking = true;
             this.treeSamples.ImageIndex = 0;
@@ -312,11 +313,12 @@ namespace ChartSamples
             this.treeSamples.Size = new System.Drawing.Size(168, 112);
             this.treeSamples.TabIndex = 1;
             this.treeSamples.AfterCollapse += new System.Windows.Forms.TreeViewEventHandler(this.treeSamples_AfterCollapse);
-            this.treeSamples.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeSamples_AfterSelect);
             this.treeSamples.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.treeSamples_AfterExpand);
+            this.treeSamples.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeSamples_AfterSelect);
             // 
             // imageListTree
             // 
+            this.imageListTree.ColorDepth = System.Windows.Forms.ColorDepth.Depth24Bit;
             this.imageListTree.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListTree.ImageStream")));
             this.imageListTree.TransparentColor = System.Drawing.Color.Transparent;
             this.imageListTree.Images.SetKeyName(0, "");
@@ -352,7 +354,7 @@ namespace ChartSamples
             this.pictureBoxHeaderLeft.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxHeaderLeft.Image")));
             this.pictureBoxHeaderLeft.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxHeaderLeft.Name = "pictureBoxHeaderLeft";
-            this.pictureBoxHeaderLeft.Size = new System.Drawing.Size(247, 157);
+            this.pictureBoxHeaderLeft.Size = new System.Drawing.Size(370, 157);
             this.pictureBoxHeaderLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBoxHeaderLeft.TabIndex = 1;
             this.pictureBoxHeaderLeft.TabStop = false;
@@ -393,9 +395,9 @@ namespace ChartSamples
             // 
             // panelWebBrowser
             // 
-            this.panelWebBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelWebBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelWebBrowser.Controls.Add(this.webBrowser1);
             this.panelWebBrowser.Location = new System.Drawing.Point(32, 32);
             this.panelWebBrowser.Name = "panelWebBrowser";
@@ -413,10 +415,10 @@ namespace ChartSamples
             // 
             // tabControlSample
             // 
-            this.tabControlSample.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControlSample.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControlSample.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControlSample.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControlSample.ImageList = null;
             this.tabControlSample.Location = new System.Drawing.Point(0, 136);
             this.tabControlSample.Name = "tabControlSample";
@@ -431,7 +433,7 @@ namespace ChartSamples
             this.buttonSamplePrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSamplePrevious.BackColor = System.Drawing.Color.White;
             this.buttonSamplePrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSamplePrevious.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSamplePrevious.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonSamplePrevious.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
             this.buttonSamplePrevious.Location = new System.Drawing.Point(648, 180);
             this.buttonSamplePrevious.Name = "buttonSamplePrevious";
@@ -446,7 +448,7 @@ namespace ChartSamples
             this.buttonSampleNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSampleNext.BackColor = System.Drawing.Color.White;
             this.buttonSampleNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSampleNext.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSampleNext.Font = new System.Drawing.Font("Verdana", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonSampleNext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
             this.buttonSampleNext.Location = new System.Drawing.Point(760, 180);
             this.buttonSampleNext.Name = "buttonSampleNext";
@@ -458,29 +460,34 @@ namespace ChartSamples
             // 
             // contextMenuRTF
             // 
-            this.contextMenuRTF.Items.AddRange(new System.Windows.Forms.ToolStripMenuItem[] {
+            this.contextMenuRTF.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuRTF.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemCopy,
             this.menuItemCopyAll});
-            this.contextMenuRTF.Opened+= new System.EventHandler(this.contextMenuRTF_Popup);
+            this.contextMenuRTF.Name = "contextMenuRTF";
+            this.contextMenuRTF.Size = new System.Drawing.Size(140, 52);
+            this.contextMenuRTF.Opened += new System.EventHandler(this.contextMenuRTF_Popup);
             // 
             // menuItemCopy
             // 
-        //    this.menuItemCopy.MergeIndex = 0;
+            this.menuItemCopy.Name = "menuItemCopy";
+            this.menuItemCopy.Size = new System.Drawing.Size(139, 24);
             this.menuItemCopy.Text = "&Copy";
             this.menuItemCopy.Click += new System.EventHandler(this.menuItemCopy_Click);
             // 
             // menuItemCopyAll
             // 
-          //  this.menuItemCopyAll.Index = 1;
+            this.menuItemCopyAll.Name = "menuItemCopyAll";
+            this.menuItemCopyAll.Size = new System.Drawing.Size(139, 24);
             this.menuItemCopyAll.Text = "Copy &All";
             this.menuItemCopyAll.Click += new System.EventHandler(this.menuItemCopyAll_Click);
             // 
             // labelSampleTitle
             // 
-            this.labelSampleTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelSampleTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSampleTitle.BackColor = System.Drawing.Color.White;
-            this.labelSampleTitle.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSampleTitle.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelSampleTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(59)))), ((int)(((byte)(105)))));
             this.labelSampleTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.labelSampleTitle.Location = new System.Drawing.Point(264, 144);
@@ -499,6 +506,7 @@ namespace ChartSamples
             this.Controls.Add(this.splitterVertical);
             this.Controls.Add(this.panelTree);
             this.Controls.Add(this.panelHeader);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "MainForm";
@@ -516,6 +524,7 @@ namespace ChartSamples
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHeaderMidle)).EndInit();
             this.panelContent.ResumeLayout(false);
             this.panelWebBrowser.ResumeLayout(false);
+            this.contextMenuRTF.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
