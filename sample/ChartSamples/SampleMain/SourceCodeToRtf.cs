@@ -88,8 +88,13 @@ namespace ChartSamples
 			String strOut = strIn.Replace("\\","\\\\");
 			strOut = strOut.Replace("}","\\}");
 			strOut = strOut.Replace("{","\\{");
-			strOut = strOut.Replace("\r\n","\r");
-			strOut = strOut.Replace("\r","\r\n\\par");
+			// Normalize all source line endings before emitting RTF paragraph breaks.
+			// Sample files may be checked out with LF endings, while the original
+			// converter only handled CRLF/CR and consequently rendered the whole
+			// source file as one unwrapped line.
+			strOut = strOut.Replace("\r\n", "\n");
+			strOut = strOut.Replace("\r", "\n");
+			strOut = strOut.Replace("\n", "\r\n\\par");
 			strOut = strOut.Replace("\t","    ");
 			return strOut;
 		}

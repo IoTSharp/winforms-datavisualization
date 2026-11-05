@@ -25,7 +25,6 @@ using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Security;
 using System.Windows.Forms.DataVisualization.Charting.Borders3D;
 using System.Windows.Forms.DataVisualization.Charting.Utilities;
 using System.Windows.Forms.Design.DataVisualization.Charting;
@@ -132,7 +131,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
 		/// </summary>
 		/// <param name="imageStream">Image stream.</param>
 		/// <param name="emfType">Image stream.</param>
-        [SecuritySafeCritical]
 		public void SaveIntoMetafile(Stream imageStream, EmfType emfType)
 		{
             // Check arguments
@@ -147,9 +145,6 @@ namespace System.Windows.Forms.DataVisualization.Charting
                     IntPtr hdc = IntPtr.Zero;
                     try
                     {
-                        System.Security.Permissions.SecurityPermission securityPermission = new System.Security.Permissions.SecurityPermission(System.Security.Permissions.SecurityPermissionFlag.UnmanagedCode);
-                        securityPermission.Demand();
-                        
                         hdc = newGraphics.GetHdc();
 
 

@@ -1,17 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <AssemblyName>System.Windows.Forms.DataVisualization</AssemblyName>
+    <RootNamespace>System.Windows.Forms.DataVisualization</RootNamespace>
+    <AssemblyName>IoTSharp.WinForms.DataVisualization</AssemblyName>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <CLSCompliant>false</CLSCompliant>
     <NoWarn>$(NoWarn);618</NoWarn>
+    <!-- SR.cs intentionally uses a conditional namespace; the resource logical name is explicit below. -->
+    <MSBuildWarningsAsMessages>$(MSBuildWarningsAsMessages);MSB3042</MSBuildWarningsAsMessages>
     <DefineConstants>$(DefineConstants);WINFORMS_CONTROL</DefineConstants>
     <OutputType>Library</OutputType>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>5.0.1</Version>
-    <PackageId>Maikebing.System.Windows.Forms.DataVisualization</PackageId>
+    <Version>10.0.0</Version>
+    <PackageId>IoTSharp.WinForms.DataVisualization</PackageId>
+    <Authors>IoTSharp</Authors>
+    <Description>Windows Forms chart controls for .NET 10. The public System.Windows.Forms.DataVisualization namespaces are preserved.</Description>
+    <PackageTags>winforms;chart;datavisualization;dotnet10</PackageTags>
+    <RepositoryUrl>https://github.com/IoTSharp/winforms-datavisualization</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <!-- <Win32Manifest>Resources\System\Windows\Forms\XPThemes.manifest</Win32Manifest> -->
   </PropertyGroup>
 
@@ -20,38 +28,17 @@
     <Compile Remove="Common\EditorNames.cs" />
   </ItemGroup>
 
-  <ItemGroup>
-    <!-- Versions are defined in eng\Versions.props -->
-    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
-    <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
-    <PackageReference Include="System.Windows.Extensions" Version="6.0.0" />
-  </ItemGroup>
-
   <ItemGroup Label="Embedded Resources">
     <EmbeddedResource Update="Common\SR.resx">
       <LogicalName>System.Windows.Forms.DataVisualization.Charting.SR.resources</LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Update="SR.resx">
       <GenerateSource>true</GenerateSource>
-      <Namespace>System.Windows.Forms.DataVisualization.Charting</Namespace> <!-- I think you want System here -->
+      <Namespace>System.Windows.Forms.DataVisualization.Charting</Namespace>
     </EmbeddedResource>
   </ItemGroup>
 
-
-
-  <!--<ItemGroup>
-    <PackageReference Include="System.Drawing.Common" Version="4.6.0-preview.19073.11" />
-    <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
-    <PackageReference Include="System.Windows.Extensions" Version="4.6.0-preview.19073.11" />
-  </ItemGroup>-->
-
-  <!-- <ItemGroup>
-    <EmbeddedResource Update="Resources\SR.resx">
-      <GenerateSource>true</GenerateSource>
-      <Namespace>System</Namespace>
-    </EmbeddedResource>
-    <EmbeddedResource Include="..\Common\Resources\ChartControl.ico">
-      <Link>ChartControl.ico</Link>
-    </EmbeddedResource>
-  </ItemGroup> -->
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
 </Project>

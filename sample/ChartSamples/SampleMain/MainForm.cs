@@ -849,7 +849,7 @@ namespace ChartSamples
 						richTextBox.BorderStyle = BorderStyle.None;
 						richTextBox.Dock = DockStyle.Fill;
 						richTextBox.ReadOnly = true;
-						richTextBox.WordWrap = false;
+						richTextBox.WordWrap = true;
 
 						// Add rich-text control into the tab
 						tabPage.Controls.Add(richTextBox);

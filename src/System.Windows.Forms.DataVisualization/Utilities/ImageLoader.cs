@@ -14,7 +14,7 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Drawing;
 using System.IO;
-using System.Net;
+using System.Net.Http;
 using System.Reflection;
 using System.Resources;
 using System.Security;
@@ -39,6 +39,9 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 
 		// Reference to the service container
 		private IServiceContainer	_serviceContainer = null;
+
+        // Reuse one client for remote image loads on modern .NET.
+        private static readonly HttpClient s_httpClient = new HttpClient();
 
 		#endregion
 
@@ -230,8 +233,22 @@ namespace System.Windows.Forms.DataVisualization.Charting.Utilities
 				{
                     try
                     {
-                        WebRequest request = WebRequest.Create(imageUri);
-                        image = System.Drawing.Image.FromStream(request.GetResponse().GetResponseStream());
+                        if (imageUri.Scheme == Uri.UriSchemeHttp || imageUri.Scheme == Uri.UriSchemeHttps)
+                        {
+                            byte[] imageBytes = s_httpClient.GetByteArrayAsync(imageUri).GetAwaiter().GetResult();
+                            using (MemoryStream imageStream = new MemoryStream(imageBytes))
+                            using (System.Drawing.Image sourceImage = System.Drawing.Image.FromStream(imageStream))
+                            {
+                                image = new Bitmap(sourceImage);
+                            }
+                        }
+                        else if (imageUri.IsFile)
+                        {
+                            using (System.Drawing.Image sourceImage = System.Drawing.Image.FromFile(imageUri.LocalPath))
+                            {
+                                image = new Bitmap(sourceImage);
+                            }
+                        }
                     }
                     catch (ArgumentException)
                     {
